@@ -24,5 +24,14 @@ def variable():
     name='장지승'
     return render_template('variable.html',html_name=name)
 
+@app.route('/greeting/<string:name>/')
+def greeting(name):
+    def_name = name
+    return render_template('greeting.html',html_name=def_name)
+
+@app.route('/cube/<int:number>/')
+def cube(number):
+    return render_template('cube.html',html_number=number,cube_number=number**3)
+
 if __name__=='__main__':
     app.run(debug=True)
