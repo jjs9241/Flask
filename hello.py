@@ -1,4 +1,5 @@
 from flask import Flask, escape, request,render_template
+import random
 
 app = Flask(__name__)
 
@@ -32,6 +33,22 @@ def greeting(name):
 @app.route('/cube/<int:number>/')
 def cube(number):
     return render_template('cube.html',html_number=number,cube_number=number**3)
+
+@app.route('/lunch')
+def lunch():
+    # menu=[['부대찌개','https://post-phinf.pstatic.net/20160727_124/14696074495060Ff2u_JPEG/thLWUI1LMK.jpg?type=w1200'],
+    # ['함박스테이크','http://blogfiles.naver.net/20140723_186/irumys_1406090954335iXCuS_JPEG/%C7%D4%B9%DA%BD%BA%C5%D7%C0%CC%C5%A9%B8%C0%C1%FD3.jpg']]
+    # rand=random.choice(menu)
+
+    menus ={'부대찌개':'https://post-phinf.pstatic.net/20160727_124/14696074495060Ff2u_JPEG/thLWUI1LMK.jpg?type=w1200',
+    '함박스테이크':'http://blogfiles.naver.net/20140723_186/irumys_1406090954335iXCuS_JPEG/%C7%D4%B9%DA%BD%BA%C5%D7%C0%CC%C5%A9%B8%C0%C1%FD3.jpg'
+    }
+    pick=random.choice(list(menus.keys()))
+    
+    # return '<image src={}>{}</image>'.format(rand[1],rand[0])
+    return '<image src={}>{}</image>'.format(menus[pick],pick)
+
+
 
 if __name__=='__main__':
     app.run(debug=True)
