@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{movies}}</h1>
+    
+    <!--주석쓰는법!!-->
+    {# <!-- {%  %}-->#}
+
+    <!--html상에서 python 의 for문 사용하는 법-->
+    {% for movie in movies %}
+        {% if movie=='겨울왕국' %}
+            <li style='color:blue'>{{movie}}</li>
+        {% else %}
+            <li style='color:red'>{{movie}}</li>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

@@ -39,15 +39,17 @@ def lunch():
     # menu=[['부대찌개','https://post-phinf.pstatic.net/20160727_124/14696074495060Ff2u_JPEG/thLWUI1LMK.jpg?type=w1200'],
     # ['함박스테이크','http://blogfiles.naver.net/20140723_186/irumys_1406090954335iXCuS_JPEG/%C7%D4%B9%DA%BD%BA%C5%D7%C0%CC%C5%A9%B8%C0%C1%FD3.jpg']]
     # rand=random.choice(menu)
-
-    menus ={'부대찌개':'https://post-phinf.pstatic.net/20160727_124/14696074495060Ff2u_JPEG/thLWUI1LMK.jpg?type=w1200',
-    '함박스테이크':'http://blogfiles.naver.net/20140723_186/irumys_1406090954335iXCuS_JPEG/%C7%D4%B9%DA%BD%BA%C5%D7%C0%CC%C5%A9%B8%C0%C1%FD3.jpg'
-    }
-    pick=random.choice(list(menus.keys()))
-    
     # return '<image src={}>{}</image>'.format(rand[1],rand[0])
+    
+    menus ={'부대찌개':'https://post-phinf.pstatic.net/20160727_124/14696074495060Ff2u_JPEG/thLWUI1LMK.jpg?type=w1200',
+    '함박스테이크':'http://blogfiles.naver.net/20140723_186/irumys_1406090954335iXCuS_JPEG/%C7%D4%B9%DA%BD%BA%C5%D7%C0%CC%C5%A9%B8%C0%C1%FD3.jpg'}
+    pick=random.choice(list(menus.keys()))    
     return '<image src={}>{}</image>'.format(menus[pick],pick)
 
+@app.route('/movies')
+def movies():
+    movies=['겨울왕국','쥬만지','신의한수2']
+    return render_template('movies.html',movies=movies)
 
 
 if __name__=='__main__':
