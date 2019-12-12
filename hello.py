@@ -51,6 +51,32 @@ def movies():
     movies=['겨울왕국','쥬만지','신의한수2']
     return render_template('movies.html',movies=movies)
 
+@app.route('/ping')
+def ping():
+    return render_template('ping.html')
+
+@app.route('/getping')
+def getping():
+    return render_template('getping.html')
+
+@app.route('/naversearch')
+def naversearch():
+    return render_template('naversearch.html')
+
+@app.route('/googlesearch')
+def googlesearch():
+    return render_template('googlesearch.html')
+
+@app.route('/pong', methods = ['GET','POST'])
+def pong():
+    # print(request.form.get('keyword'))
+    #keyword = request.form.get('keyword')
+    keyword = request.args.get('keyword')
+    return render_template('pong.html', keyword = keyword)
+
+@app.route('/summoner')
+def summoner():
+    return render_template('summoner.html')
 
 if __name__=='__main__':
     app.run(debug=True)
